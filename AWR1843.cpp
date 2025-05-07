@@ -25,11 +25,9 @@
 namespace awr1843
 { 
     AWR1843::AWR1843():
-
-        state(AWR1843_PARSE_STATE0_UNSYNC),
         deviceRadarData(-1),
-        bytescounter(0)
-        {
+        bytescounter(0),
+        state(AWR1843_PARSE_STATE0_UNSYNC) {
         }
     AWR1843::~AWR1843()
     {
@@ -164,6 +162,7 @@ namespace awr1843
         //for(int i=0; i<size; i++){
         //std::cout<<std::hex << std::setfill('0') << std::setw(2)<<(int)vect[i]<<" ";
         //}
+        return 0;
     }
 
     /*
@@ -290,7 +289,9 @@ namespace awr1843
             }
             else {
                 std::cout << "Successfully connected to radar data port." << std::endl;
-    }}}
+    }}
+        return 0;
+    }
 
     /*
     * Reads and parses UART package from the radar device.

@@ -139,9 +139,7 @@ namespace awr1843
             int32_t             deviceRadarData;
 
             /* Functions */
-            int32_t             initUart();
             int32_t             initDevicePort(int32_t* device, char* deviceLocation, struct termios* oldtio, struct termios* newtio);
-            int32_t             cycleRadarRead();
             int32_t             parseRadarPackage(uint8_t c);
             int                 parserfunc(std::vector<uint8_t>&vect);
             int                 parseTlv(int index, std::vector<uint8_t>vect);
@@ -149,20 +147,14 @@ namespace awr1843
             float               read_four_bytes(unsigned char a, unsigned char b, unsigned char c, unsigned char d, int Endian);
 
 
-            int32_t disp_Package(uint8_t &array);
-            void                closeConnection(int32_t* serial_port,  struct termios* oldtio);
-
-
-
         public:
             AWR1843();
             ~AWR1843();
-     
             int32_t             initUart();
             int32_t             cycleRadarRead();
             int32_t             writeCsvLine();
             void                closeConnection(int32_t* serial_port,  struct termios* oldtio);
-            int32_t disp_Package(uint8_t &array);
+            int32_t             disp_Package(uint8_t &array);
 
     };
 }
